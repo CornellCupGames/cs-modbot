@@ -1,1 +1,3 @@
-.idea/
+#Intelij git ignore
+.idea/workspace.xml
+.idea/tasks.xml
