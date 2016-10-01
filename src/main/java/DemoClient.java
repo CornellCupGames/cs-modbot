@@ -29,6 +29,7 @@ public class DemoClient {
             for (int i = 0; i < totalMessages; i++) {
                 String testMessage = "Message: " + i;
                 out.println(testMessage);
+                System.out.printf("Sent message");
                 System.out.println("echo: " + in.readLine());
             }
             long elapsedTime = System.nanoTime() - startTime;
