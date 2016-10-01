@@ -1,5 +1,6 @@
 import java.net.*;
 import java.io.*;
+import java.util.Scanner;
 
 /**Demo server (code should go on the pi)
  * Created by CornellCup on 9/25/2016.
@@ -20,10 +21,10 @@ public class DemoServer {
         try (ServerSocket serverSocket = new ServerSocket(portNumber);
              Socket clientSocket = serverSocket.accept();
              PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+             Scanner in = new Scanner(clientSocket.getInputStream());
         ) {
             String inputLine;
-            while ((inputLine = in.readLine()) != null) {
+            while ((inputLine = in.nextLine()) != null) {
                 System.out.println("in loop");
                 out.println(inputLine);
             }
