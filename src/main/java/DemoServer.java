@@ -24,8 +24,10 @@ public class DemoServer {
              Scanner in = new Scanner(clientSocket.getInputStream());
         ) {
             String inputLine;
-            while ((inputLine = in.nextLine()) != null) {
-                System.out.println("in loop");
+            while (true) {
+                System.out.println("Waiting for input");
+                inputLine = in.nextLine();
+                System.out.println("Got Input");
                 out.println(inputLine);
             }
         } catch (IOException e) {
