@@ -1,5 +1,3 @@
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.net.*;
 import java.io.*;
 
@@ -27,6 +25,7 @@ public class DemoServer {
             out.println("Hello world");
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
+                System.out.println("in loop");
                 out.println(inputLine);
             }
         } catch (IOException e) {
