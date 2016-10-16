@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="cs-modbot-server" />
         <module name="modbot-cs" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cs-modbot-server" target="1.8" />
       <module name="modbot-cs" target="1.8" />
     </bytecodeTargetLevel>
   </component>
