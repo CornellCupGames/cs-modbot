@@ -1,3 +1,4 @@
+package connection;
 import packet.Packet;
 
 public interface Connection {

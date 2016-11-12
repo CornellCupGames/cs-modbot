@@ -1,3 +1,5 @@
+package packet.commands;
+
 import java.util.ArrayList;
 
 public class Ping extends Command {
@@ -7,6 +9,6 @@ public class Ping extends Command {
 	}
 
 	public Ping(String... values) {
-		values = new ArrayList<String>();
+		this.values = new ArrayList<String>();
 	}
 }

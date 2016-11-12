@@ -1,3 +1,4 @@
+package connection;
 public class ConnectionType {
 
 	public static enum Type {
@@ -9,21 +10,21 @@ public class ConnectionType {
 	Type type; 
 	Integer field;
 
-	private ConnectionType(Type type, int field) {
-		this.type = t;
-		this.field = f;
+	private ConnectionType(Type type, Integer field) {
+		this.type = type;
+		this.field = field;
 	}
 
 	public static ConnectionType NoWait() {
-		return new ConnectionType(NO_WAIT, null);
+		return new ConnectionType(Type.NO_WAIT, null);
 	}
 
 	public static ConnectionType Block() {
-		return new ConnectionType(BLOCK, null);
+		return new ConnectionType(Type.BLOCK, null);
 	}
 
 	public static ConnectionType Timeout(int timeout) {
-		return new ConnectionType(TIMEOUT, timeout);
+		return new ConnectionType(Type.TIMEOUT, timeout);
 	}
 
 	public Type getType() {

@@ -1,3 +1,5 @@
+package packet;
+import java.lang.reflect.InvocationTargetException;
 import packet.commands.*;
 import java.util.Map;
 import java.util.HashMap;
@@ -30,7 +32,8 @@ public class Packet {
 		commandTypes = new ArrayList<CommandType>();
 	}
 
-	public void addCommand(CommandType type, String... values) {
+	public void addCommand(CommandType type, String... values) throws NoSuchMethodException,
+			InstantiationException, IllegalAccessException, InvocationTargetException {
 		Command c = COMMAND_MAP.get(type).getConstructor(String[].class).newInstance(values);
 		commands.add(c);
 		commandTypes.add(type);

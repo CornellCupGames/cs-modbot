@@ -1,6 +1,9 @@
+package server;
 import static spark.Spark.*;
 import connection.ConnectionType;
 import connection.Connection;
+import connection.ModbotSimConnection;
+import packet.Packet;
 
 public class Server {
 
@@ -9,13 +12,13 @@ public class Server {
 
     public Server(int portNumber) {
         this.portNumber = portNumber;
-        connection = null;
+        connection = new ModbotSimConnection();
     }
 
-	public static void pingRoute() {
+	public void pingRoute() {
 		get("/ping", (req, res) -> {
             Packet p = new Packet();
-			p.addCommand(CommandType.PING);
+			p.addCommand(Packet.CommandType.PING);
             Packet r = connection.transaction(p, ConnectionType.Timeout(30), true);
             if (r == null) {
                 return "ping failed...";

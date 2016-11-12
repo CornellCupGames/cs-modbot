@@ -1,3 +1,5 @@
+package packet.commands;
+
 import java.util.ArrayList;
 
 public class SetMotorSpeed extends Command {
@@ -9,9 +11,9 @@ public class SetMotorSpeed extends Command {
 	}
 
 	public SetMotorSpeed(String... values) {
-		values = new ArrayList<String>();
+		this.values = new ArrayList<String>();
 		for (String value : values) {
-			values.add(value);
+			this.values.add(value);
 		}
 	}
 }
