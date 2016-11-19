@@ -32,11 +32,33 @@ public class Packet {
 		commandTypes = new ArrayList<CommandType>();
 	}
 
-	public void addCommand(CommandType type, String... values) throws NoSuchMethodException,
-			InstantiationException, IllegalAccessException, InvocationTargetException {
-		Command c = COMMAND_MAP.get(type).getConstructor(String[].class).newInstance(values);
-		commands.add(c);
-		commandTypes.add(type);
+	public void addCommand(CommandType type, String... values) {
+		try {
+			Command c = COMMAND_MAP.get(type).getConstructor().newInstance();
+			c.addValues(values);
+			commands.add(c);
+			commandTypes.add(type);
+		} catch (NoSuchMethodException e) {
+			System.err.println("Caught NoSuchMethodException: " + e.getMessage());
+		} catch (InstantiationException e) {
+			System.err.println("Caught InstantiationException: " + e.getMessage());
+		} catch (IllegalAccessException e) {
+			System.err.println("Caught IllegalAccessException: " + e.getMessage());
+		} catch (InvocationTargetException e) {
+			System.err.println("Caught InvocationTargetException: " + e.getMessage());
+		}
 	}
 
+	public List<Command> commands() {
+		return commands;
+	}
+
+	public List<CommandType> commandTypes() {
+		return commandTypes;
+	}
+
+	public boolean empty() {
+		return commands.size() == 0;
+	}
+	
 }

@@ -10,10 +10,15 @@ public class SetMotorSpeed extends Command {
 		fields.add("motor_speed");
 	}
 
-	public SetMotorSpeed(String... values) {
+	public SetMotorSpeed() {
 		this.values = new ArrayList<String>();
-		for (String value : values) {
-			this.values.add(value);
-		}
+	}
+
+	public int motor_id() {
+		return Integer.parseInt(values.get(0));
+	}
+
+	public double motor_speed() {
+		return Double.parseDouble(values.get(1));
 	}
 }

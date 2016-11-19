@@ -30,4 +30,10 @@ public abstract class Command {
 				.collect(Collectors.toList());
 	}
 
+	public void addValues(String... values) {
+		for (int i = 0; i < fields.size(); i++) {
+			this.values.add(values[i]);
+		}
+	}
+
 }

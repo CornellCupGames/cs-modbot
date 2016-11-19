@@ -43,4 +43,23 @@ public class Modbot {
 	public double y() {
 		return pos_y;
 	}
+
+	public void set_velocity(int motorid, double velocity) {
+		switch (motorid) {
+			case 1: 
+				motor1.set_velocity(velocity);
+				break;
+			case 2:
+				motor2.set_velocity(velocity);
+				break;
+			case 3:
+				motor3.set_velocity(velocity);
+				break;
+			case 4:
+				motor4.set_velocity(velocity);
+				break;
+			default:
+				break;
+		}
+	}
 }

@@ -8,7 +8,7 @@ public class Ping extends Command {
 		fields = new ArrayList<String>();
 	}
 
-	public Ping(String... values) {
+	public Ping() {
 		this.values = new ArrayList<String>();
 	}
 }
